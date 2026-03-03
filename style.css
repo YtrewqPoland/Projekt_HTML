@@ -1,0 +1,8 @@
+body{
+    background-color: rgb(28, 115, 192);
+    margin: 0;
+    font-family: "Life Savers", serif;
+}
+nav{
+    display: flex;
+}
