@@ -18,6 +18,11 @@ header{
 h3{
     font-size: 1.75rem;
     font-weight: bold;
+    background-color: rgb(62, 206, 228);
+    padding: 10px;
+}
+#napis_oferta{
+    background-color: rgb(216, 138, 89);
 }
 ul{
     list-style: none;
@@ -76,7 +81,6 @@ nav img{
     width: 70%;
     margin: 15px;
     font-size: 1.25rem;
-    ;
 }
 #o_nas img{
     margin: 10px;
@@ -114,25 +118,117 @@ nav img{
 }
 .sklep{
     display: flex;
-    flex-direction: column;
+    flex-direction:row;
     align-items: center;
 }
 .sklep a{
-    margin: 15px;
-    width: 80%;
+    margin: 25px;
+    width: 30%;
     text-align: center;
     background-color: rgb(62, 206, 228);
     font-weight: bold;
     font-size: 1.75rem;
-    border-top: 10px;
     border-color: black;
     border-radius: 10px;
-    color: black
+    color: black;
+    height: 300px;
 }
 .sklep a:hover{
     background-color: white;
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
+.container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
+	z-index: 5;
+	position: relative;
+
+}
+.menu2 {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	grid-area: 1/1/2/2;
+	position: relative;
+}
+.menu2 a {
+		color: #333;
+		cursor: pointer;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 1;
+		position: relative;
+		text-align: center;
+		margin: 1vh auto;
+		padding: 2.5vh 0;
+		width: 80%;
+		background: rgba(255, 255, 255, 0.3);
+		backdrop-filter: blur(15px);
+		border-radius: 5px;
+		box-shadow: 1px 1px 0 0 rgba(255, 255, 255, 0.8) inset,
+			3px 5px 10px 0 rgba(0, 0, 0, 0.1);
+		text-decoration: none;
+		will-change: color, text-shadow, font-size;
+		transition: ease all 0.3s;
+}
+.menu2 a:hover {
+			transform: scale(1.1);
+			background: rgba(255, 255, 255, 0.8);
+		}
+.wrapper-images {
+	display: flex;
+	flex-direction: column;
+	height: 150vh;
+	justify-content: center;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	opacity: 0.6;
+	transform: translate3d(-50%, -50%, 0) rotate(22.5deg);
+}
+.images-line {
+	animation: runner 20s linear infinite;
+	display: flex;
+	transform: translateX(25%);
+	.line {
+		--tile-margin: 3vw;
+		background-position: 50% 50%;
+		background-size: cover;
+		border-radius: 50%;
+		flex: none;
+		height: 30vh;
+		margin: 3vw;
+		width: 30vh;
+		position: relative;
+		&:after {
+			content: "";
+			background: inherit;
+			display: block;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			top: 3vh;
+			position: absolute;
+			background-size: cover;
+			z-index: -1;
+			filter: blur(25px) opacity(0.8);
+		}
+		&.large {
+			border-radius: 20vh;
+			width: 100vh;
+		}
+	}
+}
+
+@keyframes runner {
+	to {
+		transform: translateX(-25%);
+	}
+}
+
 footer{
     background-color: white;
     padding: 10px;
