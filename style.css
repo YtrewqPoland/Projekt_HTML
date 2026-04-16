@@ -65,7 +65,6 @@ nav{
     display: flex;
     flex-direction: column;
     align-items:center;
-    /* background-color: rgb(216, 138, 89); */
 }
 
 nav img{
@@ -143,6 +142,7 @@ nav img{
 	flex-direction: column;
 	justify-content: center;
 	height: 100vh;
+    width: 50%;
 	z-index: 5;
 	position: relative;
 
@@ -153,6 +153,7 @@ nav img{
 	width: 100%;
 	grid-area: 1/1/2/2;
 	position: relative;
+    background-color: transparent;
 }
 .menu2 a {
 		color: #333;
@@ -162,9 +163,8 @@ nav img{
 		line-height: 1;
 		position: relative;
 		text-align: center;
-		margin: 1vh auto;
 		padding: 2.5vh 0;
-		width: 80%;
+		width: 100%;
 		background: rgba(255, 255, 255, 0.3);
 		backdrop-filter: blur(15px);
 		border-radius: 5px;
@@ -173,11 +173,22 @@ nav img{
 		text-decoration: none;
 		will-change: color, text-shadow, font-size;
 		transition: ease all 0.3s;
+        margin: 5px;
+        background-color: rgb(216, 138, 89);
+        
 }
 .menu2 a:hover {
 			transform: scale(1.1);
 			background: rgba(255, 255, 255, 0.8);
 		}
+#oferta{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
 .wrapper-images {
 	display: flex;
 	flex-direction: column;
@@ -222,7 +233,9 @@ nav img{
 		}
 	}
 }
-
+.gitara_menu{
+    background-color: white;
+}
 @keyframes runner {
 	to {
 		transform: translateX(-25%);
@@ -230,30 +243,45 @@ nav img{
 }
 
 footer{
-    background-color: white;
-    padding: 10px;
+    background-color: black;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    flex-direction: column;
 }
-@media (min-width: 320px){
-    nav ul{
-        font-size: 0.4rem;
-        padding: 5px;
-    }
+footer p{
+    color: white;
 }
-@media (min-width: 480px) {
+#info{
+    width: 50%;
+}
+#info_footer{
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    gap:30px
+}
+iframe{
+    width: 50%;
+    height: 30vh;
+}
+@media (min-width: 320px) {
     nav{
         background-color: rgb(62, 206, 228);
     }
     nav ul{
-        font-size: 0.7rem;
+        font-size: 0.9rem;
         gap: 10px
     }
 }
-@media (min-width: 1024px){
+@media (min-width: 720px){
     nav{
-        background-color: r;
+        background-color: rgb(216, 138, 89);
     }
     nav ul{
         font-size: 1.25rem;
