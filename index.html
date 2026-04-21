@@ -71,6 +71,13 @@
                     <a href="gitary_elektryczne.html" class="gitara_menu">Gitary elektryczne</a>
             </div>
         </section>
+        <form action="<?= htmlspercialchars($_SERVER['PHP_SELF']) ?>" method="post", class="login_form">
+            <label for="username">Nazwa użytkownika: </label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Hasło: </label>
+            <input type="password" placeholder="Podaj hasło..." id="password" name="password" required>
+            <input type="submit" value="Zaloguj się" name="submit">
+        </form>
     </main>
     <footer>
         <div id="info_footer">
