@@ -242,6 +242,7 @@ nav img{
 	}
 }
 
+/* FOOTER */
 footer{
     background-color: black;
     text-align: center;
@@ -270,6 +271,85 @@ iframe{
     width: 50%;
     height: 30vh;
 }
+/* EKRAN LOGOWANIA */
+#login_name{
+    padding: 10px;
+
+}
+#str_log{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+.login_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 25vh;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid;
+    padding: 40px 30px;
+    background-color: rgb(216, 138, 89);
+    box-shadow: 8px 8px 0px;
+    position: relative;
+    border-radius: 12px;
+    
+}
+.login_form:before{
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: -6px;
+    bottom: -6px;
+    border: 1px solid black;
+    z-index: -1;
+    border-radius: 12px;
+    }
+.input_group{
+    margin-bottom: 20px;
+    position: relative;
+}
+input{
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid black;
+    background-color: white;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+}
+input:focus{
+    box-shadow: 4px 4px 0px black;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: black;
+  }
+#submit{
+    width: 100%;
+    padding: 12px;
+    background-color: red;
+    color: black;
+    border: 2px solid black;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s;
+}
+#submit:hover{
+    box-shadow: 4px 4px 0px black;
+    transform: translate(-2px, -2px);
+}
+/* RESPONSYWNOŚĆ */
 @media (min-width: 320px) {
     nav{
         background-color: rgb(62, 206, 228);
