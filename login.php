@@ -23,12 +23,39 @@
     </header>
     <main id="str_log">
     <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="login_form">
+        <?php
+            session_start();
+            require_once __DIR__ . '/db-connection.php';
+            $info = '';
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $name = trim($_POST['username']);
+                $password = trim($_POST['password']);
+                $stmt = $pdo->prepare('SELECT * FROM dane WHERE email = ?');
+                $stmt->execute([$name]);
+                $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                if ($user && password_verify($password, $user['password'])) {
+                    $_SESSION['user_id'] = $user['id'];
+                    $_SESSION['user_name'] = $user['name'];
+                    $_SESSION['user_email'] = $user['email'];
+                    $_SESSION['is_admin'] = (bool)$user['type'];
+                    if($user['type'] == 1){
+                        header('Location: admin_panel.php');
+                    } else {
+                        header('Location: user_panel.php');
+                    }
+                    exit;
+                } else{
+                    $info = 'Nieprawidłowa nazwa użytkownika lub hasło.';
+                }
+            }
+        ?>
         <h1 id="login_name">LOGIN</h1>
         <label for="username">Nazwa użytkownika: </label>
         <input type="email" class="input_group" name="username" required placeholder="jan.kowalski@gmail.com">
         <label for="password">Hasło: </label>
         <input type="password" placeholder="Podaj hasło..." class="input_group" name="password" required>
         <input type="submit" value="Zaloguj się" name="submit" id="submit">
+        <p class="msg"><?= htmlspecialchars($info) ?></p>
     </form>
     </main>
     <footer>
