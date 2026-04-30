@@ -1,3 +1,4 @@
+/* OGÓLNE ELEMENTY */
 *{
     scroll-behavior: smooth;
     margin: 0;
@@ -45,6 +46,7 @@ a:hover{
 }
 
 /* MENU GŁÓWNE */
+
 .hero{
     background-image: url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-repeat: no-repeat;
@@ -97,7 +99,9 @@ nav img{
 .login_button:active{
     transform: translateY(0);
 }
+
 /* SEKCJA "O NAS" */
+
 #o_nas{
     display: flex;
     background-color: rgb(62, 206, 228);
@@ -135,13 +139,9 @@ nav img{
     font-weight: bold;
     padding: 10px 10px;
 }
-#oferta{
-    background-color: rgb(216, 138, 89);
-    height: 100vh;
-}
-#oferta h3{
-    padding: 10px;
-}
+
+/* SKLEP - MENU Z RUCHOMYM TŁEM */
+
 .sklep{
     display: flex;
     flex-direction:row;
@@ -183,32 +183,33 @@ nav img{
     background-color: transparent;
 }
 .menu2 a {
-		color: #333;
-		cursor: pointer;
-		font-size: 20px;
-		font-weight: 700;
-		line-height: 1;
-		position: relative;
-		text-align: center;
-		padding: 2.5vh 0;
-		width: 100%;
-		background: rgba(255, 255, 255, 0.3);
-		backdrop-filter: blur(15px);
-		border-radius: 5px;
-		box-shadow: 1px 1px 0 0 rgba(255, 255, 255, 0.8) inset,
-			3px 5px 10px 0 rgba(0, 0, 0, 0.1);
-		text-decoration: none;
-		will-change: color, text-shadow, font-size;
-		transition: ease all 0.3s;
-        margin: 5px;
-        background-color: rgb(216, 138, 89);
+    color: #333;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    position: relative;
+    text-align: center;
+    padding: 2.5vh 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    border-radius: 5px;
+    box-shadow: 1px 1px 0 0 rgba(255, 255, 255, 0.8) inset,
+        3px 5px 10px 0 rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    will-change: color, text-shadow, font-size;
+    transition: ease all 0.3s;
+    margin: 5px;
+    background-color: rgb(216, 138, 89);
         
 }
 .menu2 a:hover {
-			transform: scale(1.1);
-			background: rgba(255, 255, 255, 0.8);
-		}
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.8);
+}
 #oferta{
+    height: 100vh;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -270,6 +271,7 @@ nav img{
 }
 
 /* FOOTER */
+
 footer{
     background-color: black;
     text-align: center;
@@ -298,24 +300,27 @@ iframe{
     width: 50%;
     height: 30vh;
 }
-/* EKRAN LOGOWANIA */
-#login_name{
-    padding: 10px;
 
-}
-#str_log{
+/* EKRAN LOGOWANIA I FORMULARZ KONTAKTOWY */
+
+#str_log, #str_kont{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    background-image: url("https://images.unsplash.com/photo-1471478331149-c72f17e33c73?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-}   
-.login_form{
+}
+#str_log{
+    background-image: url("https://images.unsplash.com/photo-1471478331149-c72f17e33c73?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+#str_kont{
+    background-image: url("https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+.login_form, .kontakt_form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -325,12 +330,16 @@ iframe{
     width: 100%;
     max-width: 400px;
     border: 1px solid;
-    padding: 40px 30px;
-    background-color: rgb(216, 138, 89);
+    padding: 20px 30px;
     box-shadow: 8px 8px 0px;
     position: relative;
     border-radius: 12px;
-    
+}
+.login_form{
+    background-color: rgb(216, 138, 89);
+}
+.kontakt_form{
+    background-color: rgb(62, 206, 228);
 }
 .login_form:before{
     content: '';
@@ -359,6 +368,16 @@ input{
 input:focus{
     box-shadow: 4px 4px 0px black;
 }
+textarea{
+    width: 100%;
+    height: 150px;
+    padding: 12px 15px;
+    border: 2px solid black;
+    background-color: white;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+}
 label {
     display: block;
     margin-bottom: 8px;
@@ -381,7 +400,9 @@ label {
     box-shadow: 4px 4px 0px black;
     transform: translate(-2px, -2px);
 }
+
 /* RESPONSYWNOŚĆ */
+
 @media (min-width: 320px) {
     nav{
         background-color: rgb(62, 206, 228);

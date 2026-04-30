@@ -17,11 +17,12 @@
                 <li><a href="gitary_klasyczne.html">Gitary klasyczne</a></li>
                 <li><a href="gitary_akustyczne.html">Gitary akustyczne</a></li>
                 <li><a href="gitary_elektryczne.html">Gitary elektryczne</a></li>
+                <li><a href="kontakt.php">Kontakt</a></li>
             </ul>
         </nav>
     </header>
     <main id="str_log">
-    <form action="<?= htmlspercialchars($_SERVER['PHP_SELF']) ?>" method="post", class="login_form">
+    <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="login_form">
         <h1 id="login_name">LOGIN</h1>
         <label for="username">Nazwa użytkownika: </label>
         <input type="email" class="input_group" name="username" required placeholder="jan.kowalski@gmail.com">

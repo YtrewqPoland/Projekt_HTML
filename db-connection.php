@@ -1,12 +1,14 @@
-$host = 'localhost';
-$dbname = 'siminski_strona';
-$user = 'adminSiminski';
-$pass = 'admin';
+<?php
+$host = "localhost";
+$dbname = "siminski_strona";
+$user = "adminSiminski";
+$pass = "admin";
 
-$dsn = 'mysql:host=$host;dbname=$dbname';
+$dsn = 'mysql:host=localhost;dbname=siminski_strona;';
 
 try{
     $pdo = new PDO($dsn, $user, $pass);
-}   catch(PDOException $e){
-    echo "Błąd połączenia: " . $e->getMessage()
+}catch(PDOException $e){
+    echo "Błąd połączenia: " . $e->getMessage();
 }
+?>
