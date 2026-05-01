@@ -38,9 +38,7 @@
                         <span class="cena">
                             <?=number_format($row['price'], 2, ',', ' ')?> PLN
                         </span>
-                        <figure>
-                            <img src="<?= htmlspecialchars($row['img']) ?>" alt="<?= htmlspecialchars($row['name']) ?>">
-                        </figure>
+                        <img src="<?= htmlspecialchars($row['img']) ?>" alt="<?= htmlspecialchars($row['name']) ?>">
                         <h3><?= htmlspecialchars($row['name']) ?></h3>
                         <p><?= htmlspecialchars($row['description']) ?></p>
                         <a href="#" class="buy_button">Kup teraz</a>
