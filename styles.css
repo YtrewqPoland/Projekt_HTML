@@ -401,6 +401,14 @@ label {
     transform: translate(-2px, -2px);
 }
 
+/* WYŚWIETLANIE PRODUKTÓW */
+.produkt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(216, 138, 89);
+    width: 50%
+}
 /* RESPONSYWNOŚĆ */
 
 @media (min-width: 320px) {
