@@ -14,7 +14,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Strona główna</a></li>
-                <li><a href="gitary_klasyczne.html">Gitary klasyczne</a></li>
+                <li><a href="gitary_klasyczne.php">Gitary klasyczne</a></li>
                 <li><a href="gitary_akustyczne.html">Gitary akustyczne</a></li>
                 <li><a href="gitary_elektryczne.html">Gitary elektryczne</a></li>
                 <li><a href="kontakt.php">Kontakt</a></li>
@@ -40,7 +40,7 @@
                         </span>
                         <img src="<?= htmlspecialchars($row['img']) ?>" alt="<?= htmlspecialchars($row['name']) ?>">
                         <h3><?= htmlspecialchars($row['name']) ?></h3>
-                        <p><?= htmlspecialchars($row['description']) ?></p>
+                        <p class="product_description"><?= htmlspecialchars($row['description']) ?></p>
                         <a href="#" class="buy_button">Kup teraz</a>
                     </article>
                 <?php endwhile; ?>

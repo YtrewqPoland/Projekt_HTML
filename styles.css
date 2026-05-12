@@ -420,7 +420,11 @@ label {
     font-size: 1.5rem;
     font-weight: bold;
     margin: 10px;
-    color: red;
+    color: orange;
+}
+.produkt .product_description{
+    font-size: 1.25rem;
+    margin: 10px;
 }
 .produkt img{
     width: 80%; 
