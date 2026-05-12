@@ -449,6 +449,35 @@ label {
     margin: 15px;
 }
 
+/* PANEL UŻYTKOWNIKA */
+
+#user_panel_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+#tabela_wiadomosci_naglowek{
+    display:flex;
+    padding: 10px;
+    gap: 20px;
+    margin-top:20px;
+    background-color: rgb(62, 206, 228);
+    border: 1px solid black;
+}
+
+#tabela_wiadomosci_tresc{
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+}
+.wiadomosc{
+    border: 1px solid black;
+    padding: 10px;
+    background-color: rgb(217,217, 217);
+    border-radius: 10px;
+}
 /* RESPONSYWNOŚĆ */
 
 @media (min-width: 320px) {

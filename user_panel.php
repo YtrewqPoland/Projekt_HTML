@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +20,51 @@
                 <li><a href="gitary_elektryczne.html">Gitary elektryczne</a></li>
                 <li><a href="kontakt.php">Kontakt</a></li>
             </ul>
-            <a href="login.php" class="login_button"><span id="login_button_napis">Zaloguj się</span></a>
+            <a href="wyloguj.php" class="login_button"><span id="login_button_napis">Wyloguj się</span></a>
         </nav>
     </header>
-    <a href="wyloguj.php">Wyloguj się</a>
+    <section id="user_panel_content">
+        <?php
+            session_start();
+            require_once __DIR__ . '/db-connection.php';
+            if (!isset($_SESSION['user_email'])) {
+                header('Location: login.php');
+                exit;
+            }
+            $userEmail = $_SESSION['user_email'];
+            $userName = $_SESSION['user_name'] ?? 'Użytkownik';
+            $messages = [];
+            $error = '';
+            try {
+                $stmt = $pdo->prepare('SELECT message FROM wiadomosci WHERE email = ? ORDER BY id DESC');
+                $stmt->execute([$userEmail]);
+                $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                $error = 'Błąd pobierania wiadomości: ' . htmlspecialchars($e->getMessage());
+            }
+        ?>
+            <h1>Witaj, <?= htmlspecialchars($userName) ?></h1>
+            <p>Wyświetlone wiadomości zostały wysłane z Twojego adresu e-mail: <strong><?= htmlspecialchars($userEmail) ?></strong></p>
+        <?php if ($error): ?>
+            <p class="msg"><?= $error ?></p>
+        <?php endif; ?>
+        <?php if (count($messages) === 0): ?>
+            <p>Nie znaleziono żadnych wiadomości dla Twojego konta.</p>
+        <?php else: ?>
+            <div class="tabela_wiaodmosci">
+                <div id="tabela_wiadomosci_naglowek">
+                    <p>Treść wiadomości</p>
+                </div>
+                <div id="tabela_wiadomosci_tresc">
+                    <?php foreach ($messages as $message): ?>
+                        <article class="wiadomosc">
+                            <p><?= nl2br(htmlspecialchars($message['message'])) ?></p>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+    </section>
     <footer>
         <div id="info_footer">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1563.653310782513!2d19.906288605493938!3d49.99795196489178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165d622928bf21%3A0xa6031d056bc3043b!2sKwiatowa%2012%2C%2030-437%20Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1776334370303!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -35,7 +77,7 @@
             Sobota: 10:00 - 18:00<br>
             Niedziela: Nieczynne</p>
         </div>
-    <p>Copyright 2026</p>
+        <p>Copyright 2026</p>
     </footer>
 </body>
 </html>
