@@ -69,7 +69,6 @@ nav{
     justify-content:center;
     align-items:center;
 }
-
 nav img{
     position: fixed;
 }
@@ -110,11 +109,6 @@ nav img{
     width: 70%;
     margin: 15px;
     font-size: 1.25rem;
-}
-#o_nas img{
-    margin: 10px;
-    width: 60%;
-    border-radius: 20px;
 }
 #o_nas button{
     display: flex;
@@ -465,7 +459,6 @@ label {
     background-color: rgb(62, 206, 228);
     border: 1px solid black;
 }
-
 #tabela_wiadomosci_tresc{
     display:flex;
     flex-direction: column;
