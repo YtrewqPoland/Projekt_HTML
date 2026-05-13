@@ -16,8 +16,8 @@
             <ul>
                 <li><a href="index.html">Strona główna</a></li>
                 <li><a href="gitary_klasyczne.php">Gitary klasyczne</a></li>
-                <li><a href="gitary_akustyczne.html">Gitary akustyczne</a></li>
-                <li><a href="gitary_elektryczne.html">Gitary elektryczne</a></li>
+                <li><a href="gitary_akustyczne.php">Gitary akustyczne</a></li>
+                <li><a href="gitary_elektryczne.php">Gitary elektryczne</a></li>
                 <li><a href="kontakt.php">Kontakt</a></li>
             </ul>
             <a href="wyloguj.php" class="login_button"><span id="login_button_napis">Wyloguj się</span></a>

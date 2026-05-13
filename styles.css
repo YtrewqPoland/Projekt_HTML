@@ -133,6 +133,15 @@ nav img{
     font-weight: bold;
     padding: 10px 10px;
 }
+#o_nas_zdjecie{
+    width: 50%;
+    height:50%;
+    padding: 20px;
+    border-radius: 50px;
+}
+#napis_o_nas{
+    scroll-margin-top: 60px;
+}
 
 /* SKLEP - MENU Z RUCHOMYM TŁEM */
 
