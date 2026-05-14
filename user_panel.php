@@ -53,7 +53,7 @@
         <?php else: ?>
             <div class="tabela_wiaodmosci">
                 <div id="tabela_wiadomosci_naglowek">
-                    <p>Treść wiadomości</p>
+                    <p>Treść wiadomości:</p>
                 </div>
                 <div id="tabela_wiadomosci_tresc">
                     <?php foreach ($messages as $message): ?>

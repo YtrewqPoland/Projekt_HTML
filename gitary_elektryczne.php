@@ -25,7 +25,7 @@
         <?php
             require "db-connection.php";
             try{
-                $stmt=$pdo->query("SELECT * FROM gitary_klasyczne WHERE type='k'");
+                $stmt=$pdo->query("SELECT * FROM gitary WHERE type=3");
             }catch (PDOException $e){
                 echo "<p>Błąd połączenia z bazą danych: " . htmlspecialchars($e->getMessage()) . "</p>";
                 exit;
