@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel użytkownika</title>
+    <title>Panel administratora</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,15 +27,26 @@
             $userName = $_SESSION['user_name'] ?? 'Użytkownik';
             $messages = [];
             $error = '';
+            if (isset($_GET['delete'])) {
+                $deleteId = (int)$_GET['delete'];
+                try {
+                    $deleteStmt = $pdo->prepare('DELETE FROM wiadomosci WHERE id = ? AND email = ?');
+                    $deleteStmt->execute([$deleteId, $userEmail]);
+                    header('Location: user_panel.php');
+                    exit;
+                } catch (PDOException $e) {
+                    $error = 'Błąd podczas usuwania: ' . htmlspecialchars($e->getMessage());
+                }
+            }
             try {
-                $stmt = $pdo->prepare('SELECT message FROM wiadomosci WHERE email = ? ORDER BY id DESC');
+                $stmt = $pdo->prepare('SELECT message, id FROM wiadomosci WHERE email = ? ORDER BY id DESC');
                 $stmt->execute([$userEmail]);
                 $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 $error = 'Błąd pobierania wiadomości: ' . htmlspecialchars($e->getMessage());
             }
         ?>
-            <h1>Witaj, <?= htmlspecialchars($userName) ?></h1>
+        <h1>Witaj, <?= htmlspecialchars($userName) ?></h1>
             <p>Wyświetlone wiadomości zostały wysłane z Twojego adresu e-mail: <strong><?= htmlspecialchars($userEmail) ?></strong></p>
         <?php if ($error): ?>
             <p class="msg"><?= $error ?></p>
@@ -52,25 +62,12 @@
                     <?php foreach ($messages as $message): ?>
                         <article class="wiadomosc">
                             <p><?= nl2br(htmlspecialchars($message['message'])) ?></p>
+                            <a class="delete" title="Usuń wiadomość" href="admin_panel.php?delete=<?=$message['id'] ?>" onclick="return confirm('Czy na pewno chcesz usunąć tę wiadomość?');">Usuń</a>
                         </article>
                     <?php endforeach; ?>
                 </div>
             </div>
         <?php endif; ?>
     </section>
-    <footer>
-        <div id="info_footer">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1563.653310782513!2d19.906288605493938!3d49.99795196489178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165d622928bf21%3A0xa6031d056bc3043b!2sKwiatowa%2012%2C%2030-437%20Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1776334370303!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <p id="info">Kontakt:<br>
-            Telefon: +48 123 456 789<br>
-            Mail: simson_guitars@gmail.com<br>
-            Adres: ul. Kwiatowa 12, 30-437 Kraków<br><br>
-            Godziny otwarcia:<br>
-            Poniedziałek - Piątek: 8:00 - 18:00<br>
-            Sobota: 10:00 - 18:00<br>
-            Niedziela: Nieczynne</p>
-        </div>
-        <p>Copyright 2026</p>
-    </footer>
-</body>
+    </body>
 </html>
