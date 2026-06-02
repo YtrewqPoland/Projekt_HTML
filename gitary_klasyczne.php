@@ -24,13 +24,23 @@
     </header>
         <?php
             require "db-connection.php";
+            $sort = $_GET['sort'] ?? 'price_asc';
+            $orderBy = 'price ASC';
+            if ($sort === 'price_desc') {
+                $orderBy = 'price DESC';
+            }
             try{
-                $stmt=$pdo->query("SELECT * FROM gitary WHERE TYPE=1");
+                $stmt = $pdo->query("SELECT * FROM gitary WHERE TYPE=1 ORDER BY {$orderBy}");
             }catch (PDOException $e){
                 echo "<p>Błąd połączenia z bazą danych: " . htmlspecialchars($e->getMessage()) . "</p>";
                 exit;
             }
         ?>
+        <div class="sort-controls">
+            <span>Sortuj po cenie:</span>
+            <a href="gitary_klasyczne.php?sort=price_asc"<?= $sort === 'price_asc' ? ' class="active"' : '' ?>>Rosnąco</a>
+            <a href="gitary_klasyczne.php?sort=price_desc"<?= $sort === 'price_desc' ? ' class="active"' : '' ?>>Malejąco</a>
+        </div>
         <div class="produkty">
             <?php if ($stmt->rowCount() > 0): ?>
                 <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
