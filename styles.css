@@ -100,6 +100,9 @@ nav img{
     transform: translateY(0);
 }
 
+.logo{
+    width: 40rem;
+}
 /* SEKCJA "O NAS" */
 
 #o_nas{
@@ -314,7 +317,7 @@ iframe{
 
 /* EKRAN LOGOWANIA I FORMULARZ KONTAKTOWY */
 
-#str_log, #str_kont{
+#str_log, #str_kont, #str_register{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -327,6 +330,9 @@ iframe{
 }
 #str_log{
     background-image: url("https://images.unsplash.com/photo-1471478331149-c72f17e33c73?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+#str_register{
+    background-image: url("https://images.unsplash.com/photo-1471478331149-c72f17e33c73?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");    background-repeat: no-repeat;
 }
 #str_kont{
     background-image: url("https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
@@ -349,8 +355,20 @@ iframe{
 .login_form{
     background-color: rgb(216, 138, 89);
 }
-.kontakt_form{
+#register_link{
+    margin-top: 15px;
     background-color: rgb(62, 206, 228);
+    padding: 10px 20px;
+    font-weight: bold;
+    color: black;
+    border: 2px solid black;
+}
+#register_link:hover{
+    box-shadow: 4px 4px 0px black;
+    transform: translate(-2px, -2px);
+}
+.kontakt_form{
+    background-color: rgb(216,138, 89);
 }
 .login_form:before{
     content: '';
@@ -392,13 +410,14 @@ textarea{
 label {
     display: block;
     margin-bottom: 8px;
+    margin-top: 10px;
     font-weight: bold;
     color: black;
   }
 #submit{
     width: 100%;
     padding: 12px;
-    background-color: red;
+    background-color: rgb(62, 206, 228);
     color: black;
     border: 2px solid black;
     font-size: 16px;
@@ -412,6 +431,16 @@ label {
     transform: translate(-2px, -2px);
 }
 
+/* REJESTRACJA */
+
+#rejestracja{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
 /* WYŚWIETLANIE PRODUKTÓW */
 
 .produkty{
@@ -490,8 +519,8 @@ label {
 #user_panel_content{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     padding: 20px;
+    height: 100vh;
 }
 #tabela_wiadomosci_naglowek{
     display:flex;
@@ -525,7 +554,7 @@ label {
     nav{
         background-color: rgb(62, 206, 228);
     }
-    nav ul{
+    nav ul, #but_o_nas{
         font-size: 0.9rem;
         gap: 10px
     }
@@ -534,9 +563,17 @@ label {
     nav{
         background-color: rgb(216, 138, 89);
     }
-    nav ul{
+    nav ul, #but_o_nas{
         font-size: 1.25rem;
         gap: 20px
+    }
+}
+@media (max-width: 720px) {
+    #o_nas_zdjecie {
+        display: none;
+    }
+    .logo{
+        width: 20rem;
     }
 }
 @media (min-width: 1280px){
@@ -546,5 +583,8 @@ label {
     nav ul{
         font-size: 1.5rem;
         gap: 25px
+    }
+    #but_o_nas{
+        font-size: 1.35rem;
     }
 }

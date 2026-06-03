@@ -56,6 +56,7 @@
         <input type="password" placeholder="Podaj hasło..." class="input_group" name="password" required>
         <input type="submit" value="Zaloguj się" name="submit" id="submit">
         <p class="msg"><?= htmlspecialchars($info) ?></p>
+        <a href="register.php" id="register_link">Nie masz konta? Zarejestruj się!</a>
     </form>
     </main>
     <footer>
