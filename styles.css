@@ -688,6 +688,9 @@ label {
     #o_nas_zdjecie {
         display: none;
     }
+    .o_nas_ramka img{
+        display: none;
+    }
     .logo{
         width: 20rem;
     }
