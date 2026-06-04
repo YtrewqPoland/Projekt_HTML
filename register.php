@@ -65,8 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </header>
 <main id="str_register">
     <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" class="login_form">
-        <h1 id="login_name">REJESTRACJA</h1>
-
+        <h1 class="login_name">REJESTRACJA</h1>
         <?php if ($success): ?>
             <p class="msg" style="color:green"><?php echo htmlspecialchars($success); ?></p>
         <?php endif; ?>
@@ -78,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </ul>
         <?php endif; ?>
         <label for="username">Nazwa użytkownika</label>
-        <input id="username" name="username" required value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>">
+        <input class="username" name="username" required value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>">
         <label for="email">E-mail</label>
         <input id="email" name="email" type="email" required value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
         <label for="password">Hasło</label>

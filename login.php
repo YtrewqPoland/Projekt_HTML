@@ -49,13 +49,13 @@
                 }
             }
         ?>
-        <h1 id="login_name">LOGIN</h1>
+        <h1 class="login_name">LOGIN</h1>
         <label for="username">Nazwa użytkownika: </label>
-        <input type="email" class="input_group" name="username" required placeholder="jan.kowalski@gmail.com">
+        <input type="email" class="email" name="username" required placeholder="jan.kowalski@gmail.com">
         <label for="password">Hasło: </label>
-        <input type="password" placeholder="Podaj hasło..." class="input_group" name="password" required>
+        <input type="password" placeholder="Podaj hasło..." class="password" name="password" required>
         <input type="submit" value="Zaloguj się" name="submit" id="submit">
-        <p class="msg"><?= htmlspecialchars($info) ?></p>
+        <p><?= htmlspecialchars($info) ?></p>
         <a href="register.php" id="register_link">Nie masz konta? Zarejestruj się!</a>
     </form>
     </main>

@@ -23,9 +23,9 @@
     </header>
     <main id="str_kont">
     <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" class="kontakt_form">
-        <h1 id="contact_name">Napisz do nas!</h1>
+        <h1 class="contact_name">Napisz do nas!</h1>
         <label for="email">E-Mail:</label>
-        <input type="email" name="email" id="email" required placeholder="jan.kowalski@gmail.com">
+        <input type="email" name="email" class="email" required placeholder="jan.kowalski@gmail.com">
         <br>
         <textarea name="message" id="message" required placeholder="Twoja wiadomość..."></textarea>
         <input type="submit" value="Wyślij" name="submit" id="submit">
