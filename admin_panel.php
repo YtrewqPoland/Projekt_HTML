@@ -11,7 +11,7 @@
 </head>
 <body id="admin_body">
     <header class="menu" style="width:100%">
-        <nav >
+        <nav>
             <a href="wyloguj.php" class="login_button"><span id="login_button_napis">Wyloguj się</span></a>
         </nav>
     </header>
@@ -29,30 +29,27 @@
             $error = '';
             $productMessage = '';
             $productError = '';
-
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_product'])) {
                 $name = trim($_POST['name'] ?? '');
                 $description = trim($_POST['description'] ?? '');
                 $price = $_POST['price'] ?? '';
                 $img = trim($_POST['img'] ?? '');
                 $type = (int)($_POST['type'] ?? 0);
-
                 if ($name === '' || $description === '' || $img === '' || $price === '' || !in_array($type, [1, 2, 3], true)) {
                     $productError = 'Wszystkie pola są wymagane, a typ musi być 1, 2 lub 3.';
-                } elseif (!is_numeric($price) || $price < 0) {
+                }elseif (!is_numeric($price) || $price < 0) {
                     $productError = 'Cena musi być dodatnią liczbą.';
-                } else {
+                }else {
                     $price = number_format((float)$price, 2, '.', '');
                     try {
                         $insertStmt = $pdo->prepare('INSERT INTO gitary (name, description, price, img, type) VALUES (?, ?, ?, ?, ?)');
                         $insertStmt->execute([$name, $description, $price, $img, $type]);
                         $productMessage = 'Produkt został dodany pomyślnie.';
-                    } catch (PDOException $e) {
+                    }catch (PDOException $e) {
                         $productError = 'Błąd podczas dodawania produktu: ' . htmlspecialchars($e->getMessage());
                     }
                 }
             }
-
             if (isset($_GET['delete'])) {
                 $deleteId = (int)$_GET['delete'];
                 try {
@@ -97,7 +94,6 @@
             </div>
         <?php endif; ?>
     </section>
-    
     <section class="product_form">
         <?php if ($productError): ?>
             <p class="msg error"><?= htmlspecialchars($productError) ?></p>
@@ -139,5 +135,5 @@
         </div>
         <p>Copyright 2026</p>
     </footer>   
-    </body>
+</body>
 </html>

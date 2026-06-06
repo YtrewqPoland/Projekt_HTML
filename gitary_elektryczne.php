@@ -37,7 +37,7 @@
             }
         ?>
         <div class="sort-controls">
-            <span>Sortuj po cenie:</span>
+            <p>Sortuj po cenie:</p>
             <a href="gitary_elektryczne.php?sort=price_asc"<?= $sort === 'price_asc' ? ' class="active"' : '' ?>>Rosnąco</a>
             <a href="gitary_elektryczne.php?sort=price_desc"<?= $sort === 'price_desc' ? ' class="active"' : '' ?>>Malejąco</a>
         </div>
